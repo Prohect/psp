@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "psp",
+  "version": "${version}",
+  "name": "psp",
+  "description": "Prohect's server plugin",
+  "authors": [
+    "Prohect"
+  ],
+  "contact": {
+    "website": "prohect.top",
+    "repo": "https://github.com/prohect/psp"
+  },
+  "license": "MIT",
+  "icon": "assets/psp/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "client": [
+      "top.prohect.psp.client.PspClient"
+    ],
+    "main": [
+      "top.prohect.psp.Psp"
+    ]
+  },
+  "mixins": [
+    "psp.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
