@@ -30,7 +30,7 @@ public class YeetTeleportCommandDestinationLimitCommand{
         return 1;
     }
 
-    public static boolean isYeetTPLimit() {
+    public static boolean yeetTPLimit() {
         return yeetTPLimit;
     }
 

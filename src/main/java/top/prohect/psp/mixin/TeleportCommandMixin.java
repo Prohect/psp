@@ -38,7 +38,7 @@ public abstract class TeleportCommandMixin {
     private static void teleport(ServerCommandSource source, Entity target, ServerWorld world, double x, double y, double z, Set<PositionFlag> movementFlags, float yaw, float pitch, TeleportCommand.LookTarget facingLocation, CallbackInfo ci) throws CommandSyntaxException {
         BlockPos blockPos = BlockPos.ofFloored(x, y, z);
         try {
-            if (YeetTeleportCommandDestinationLimitCommand.isYeetTPLimit()) {
+            if (YeetTeleportCommandDestinationLimitCommand.yeetTPLimit()) {
                 exec(source, target, world, x, y, z, movementFlags, yaw, pitch, facingLocation);
             } else if (!World.isValid(blockPos)) {
                 throw INVALID_POSITION_EXCEPTION.create();
@@ -59,14 +59,12 @@ public abstract class TeleportCommandMixin {
                 facingLocation.look(source, target);
             }
 
-
             if (target instanceof LivingEntity livingEntity) {
                 if (!livingEntity.isFallFlying()) {
                     target.setVelocity(target.getVelocity().multiply(1.0, 0.0, 1.0));
                     target.setOnGround(true);
                 }
             }
-
 
             if (target instanceof PathAwareEntity pathAwareEntity) {
                 pathAwareEntity.getNavigation().stop();
