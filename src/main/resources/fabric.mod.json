@@ -11,22 +11,27 @@
     "website": "prohect.top",
     "repo": "https://github.com/prohect/psp"
   },
-  "license": "MIT",
+  "license": "GNU GENERAL PUBLIC LICENSE V3",
   "icon": "assets/psp/icon.png",
-  "environment": "server",
+  "annotation" : "environment.value -> client/server/*",
+  "environment": "*",
   "entrypoints": {
     "client": [
       "top.prohect.psp.client.PspClient"
     ],
     "main": [
       "top.prohect.psp.Psp"
+    ],
+    "server": [
+      "top.prohect.psp.server.PspServer"
     ]
   },
   "mixins": [
     "psp.mixins.json"
   ],
+  "accessWidener": "psp.accesswidener",
   "depends": {
-    "fabricloader": ">=${loader_version}",
+    "fabricloader": "*",
     "fabric": "*",
     "minecraft": "${minecraft_version}"
   }

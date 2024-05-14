@@ -1,0 +1,4 @@
+{
+  "commands.yeetteleportlimit.enabled": "禁用TP指令目的地限制",
+  "commands.yeetteleportlimit.disabled": "取消禁用TP指令目的地限制"
+}
