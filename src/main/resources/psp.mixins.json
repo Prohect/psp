@@ -6,6 +6,7 @@
   "mixins": [
     "CommandManagerMixin",
     "EntityMixin",
+    "MobEntityMixin",
     "TeleportCommandMixin"
   ],
   "client": [
