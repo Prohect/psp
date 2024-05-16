@@ -30,5 +30,4 @@ public abstract class MobEntityMixin {
             cir.setReturnValue(ActionResult.SUCCESS);
         }
     }
-
 }
