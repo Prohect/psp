@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 @Mixin(MobEntity.class)
 public abstract class MobEntityMixin {
@@ -25,9 +26,12 @@ public abstract class MobEntityMixin {
         MobEntity that = ((MobEntity)(Object)this);
         if (itemStack.isOf(Items.AIR)) {
             double i= player.getX(),j = player.getY(),k = player.getZ();
+            AtomicBoolean flag = new AtomicBoolean(false);
             List<MobEntity> list = player.getWorld().getNonSpectatingEntities(MobEntity.class, new Box((double)i - 7.0, (double)j - 7.0, (double)k - 7.0, (double)i + 7.0, (double)j + 7.0, (double)k + 7.0));
-            list.forEach(mob -> {if (mob.getHoldingEntity() == player && mob != that) {mob.attachLeash(that,true);}});
-            cir.setReturnValue(ActionResult.SUCCESS);
+            list.forEach(mob -> {if (mob.getHoldingEntity() == player && mob != that) {mob.attachLeash(that,true);
+                flag.set(true);
+            }});
+            if (flag.get()) {cir.setReturnValue(ActionResult.SUCCESS);}
         }
     }
 }
