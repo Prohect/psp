@@ -15,10 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import top.prohect.psp.server.EntityHoldingEntityMap;
-import top.prohect.psp.server.PspServer;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Mixin(MobEntityRenderer.class)
