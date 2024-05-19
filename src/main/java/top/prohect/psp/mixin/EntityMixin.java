@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import top.prohect.psp.server.command.YeetTeleportCommandDestinationLimitCommand;
+import top.prohect.psp.server.command.command4Module.YeetTeleportCommandDestinationLimitCommand;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin {
@@ -28,7 +28,7 @@ public abstract class EntityMixin {
      */
     @Inject(method = "updatePosition", at = @At("HEAD"), cancellable = true)
     public void updatePosition(double x, double y, double z, CallbackInfo ci) {
-        if (YeetTeleportCommandDestinationLimitCommand.yeetTPLimit() && ((Entity) (Object) this) instanceof ServerPlayerEntity) {
+        if (YeetTeleportCommandDestinationLimitCommand.on() && ((Entity) (Object) this) instanceof ServerPlayerEntity) {
             this.prevX = x;
             this.prevY = y;
             this.prevZ = y;

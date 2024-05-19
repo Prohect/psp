@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import top.prohect.psp.server.command.YeetTeleportCommandDestinationLimitCommand;
+import top.prohect.psp.server.command.command4Module.YeetTeleportCommandDestinationLimitCommand;
 
 import java.util.Set;
 
@@ -38,7 +38,7 @@ public abstract class TeleportCommandMixin {
     private static void teleport(ServerCommandSource source, Entity target, ServerWorld world, double x, double y, double z, Set<PositionFlag> movementFlags, float yaw, float pitch, TeleportCommand.LookTarget facingLocation, CallbackInfo ci) throws CommandSyntaxException {
         BlockPos blockPos = BlockPos.ofFloored(x, y, z);
         try {
-            if (YeetTeleportCommandDestinationLimitCommand.yeetTPLimit()) {
+            if (YeetTeleportCommandDestinationLimitCommand.on()) {
                 exec(source, target, world, x, y, z, movementFlags, yaw, pitch, facingLocation);
             } else if (!World.isValid(blockPos)) {
                 throw INVALID_POSITION_EXCEPTION.create();

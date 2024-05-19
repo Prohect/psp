@@ -1,4 +1,4 @@
-package top.prohect.psp.server.command;
+package top.prohect.psp.server.command.command4Module;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
@@ -6,18 +6,20 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 
-public class YeetTeleportCommandDestinationLimitCommand{
+public class YeetTeleportCommandDestinationLimitCommand {
     private static boolean yeetTPLimit = true;
+
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register((LiteralArgumentBuilder) ((LiteralArgumentBuilder) CommandManager.literal("yeettplimit").requires((source) -> {
             return source.hasPermissionLevel(2);
         })).executes((context) -> {
-            return execute((ServerCommandSource) context.getSource());
+            return exec((ServerCommandSource) context.getSource());
         }));
     }
 
-    private static int execute(ServerCommandSource source) {
+
+    private static int exec(ServerCommandSource source) {
 
         yeetTPLimit = !yeetTPLimit;
         if (yeetTPLimit)
@@ -30,11 +32,8 @@ public class YeetTeleportCommandDestinationLimitCommand{
         return 1;
     }
 
-    public static boolean yeetTPLimit() {
-        return yeetTPLimit;
-    }
 
-    public static void setYeetTPLimit(boolean yeetTPLimit) {
-        YeetTeleportCommandDestinationLimitCommand.yeetTPLimit = yeetTPLimit;
+    public static boolean on() {
+        return yeetTPLimit;
     }
 }

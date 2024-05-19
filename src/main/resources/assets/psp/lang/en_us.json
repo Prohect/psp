@@ -1,4 +1,8 @@
 {
   "commands.yeetteleportlimit.enabled": "enabled yeettplimit",
-  "commands.yeetteleportlimit.disabled": "disabled yeettplimit"
+  "commands.yeetteleportlimit.disabled": "disabled yeettplimit",
+  "commands.optimizelead.enabled": "optimized lead enabled",
+  "commands.optimizelead.disabled": "optimized lead disabled",
+  "commands.yeetleaddetachedbydistance.enabled": "栓了生物的拴绳不会因距离过远而断裂",
+  "commands.yeetleaddetachedbydistance.disabled": "栓了生物的拴绳会因距离过远而断裂"
 }
