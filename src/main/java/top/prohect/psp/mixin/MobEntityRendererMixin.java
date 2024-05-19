@@ -30,7 +30,6 @@ public abstract class MobEntityRendererMixin<T extends MobEntity, M extends Enti
 
     @Inject(method = "renderLeash", at = @At("HEAD"), cancellable = true)
     private <E extends Entity> void renderLeash(T entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider provider, E holdingEntity, CallbackInfo ci) {
-        List<EntityHoldingEntityMap> entityHoldingEntityMaps = PspServer.entityHoldingEntityMaps;
         EntityHoldingEntityMap entityHoldingEntityMap = EntityHoldingEntityMap.getOrAddEntityHoldingEntityMapByWorld(entity.getWorld());
         if (entityHoldingEntityMap.entityHoldingMap.containsKey(entity)) {
             AtomicBoolean flag = new AtomicBoolean(false);
